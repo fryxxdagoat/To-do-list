@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jua&display=swap" rel="stylesheet">
+    <title>To-do List</title>
+</head>
+<body>
+    <h2>To-Do List</h2>
+
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Add a task" class="Jua">
+        <button type="submit" class="Jua">Add</button>
+    </form>
+    <div class="update-delete-func">
+    {% for todo in todo_list %}
+        <p> {{ todo.id }} . {{ todo.title }}</p>
+
+        {% if todo.complete == False %}
+            <span>Not Complete</span>
+        {% else %}
+            <span>Completed</span>
+        {% endif %}
+        <a href="/update/{{ todo.id }}" > Complete</a>
+        <a href="/delete/{{ todo.id }}" > Delete </a>
+    {% endfor %}
+    </div>
+</body>
+</html>
