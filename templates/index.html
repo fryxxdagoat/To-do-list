@@ -19,14 +19,14 @@
     </form>
     <div class="update-delete-func">
     {% for todo in todo_list %}
-        <p> {{ todo.id }} . {{ todo.title }}</p>
+        <p class="{% if todo.complete %}completed{% endif %}">{{ todo.id }} . {{ todo.title }}</p>
 
-        {% if todo.complete == False %}
-            <span>Not Complete</span>
-        {% else %}
+        {% if todo.complete %}
             <span>Completed</span>
+        {% else %}
+            <span>Pending</span>
         {% endif %}
-        <a href="/update/{{ todo.id }}" > Complete</a>
+        <a href="/update/{{ todo.id }}" > Update </a>
         <a href="/delete/{{ todo.id }}" > Delete </a>
     {% endfor %}
     </div>
