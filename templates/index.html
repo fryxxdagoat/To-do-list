@@ -7,16 +7,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <title>To-do List</title>
 </head>
 <body>
+
     <h2>To-Do List</h2>
 
     <form action="/add" method="POST">
         <input type="text" name="title" placeholder="Add a task" class="Jua">
         <button type="submit" class="Jua">Add</button>
     </form>
+    
     <div class="update-delete-func">
     {% for todo in todo_list %}
         <p class="{% if todo.complete %}completed{% endif %}">{{ todo.id }} . {{ todo.title }}</p>
@@ -30,5 +32,15 @@
         <a href="/delete/{{ todo.id }}" > Delete </a>
     {% endfor %}
     </div>
+
+    <div class="stars-container">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
