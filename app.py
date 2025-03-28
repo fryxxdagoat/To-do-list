@@ -15,6 +15,10 @@ class Todo(db.Model):
     complete = db.Column(db.Boolean)
 
 @app.route('/')
+def login():
+    return render_template('login.html')
+
+@app.route('/todo')
 def index():
     todo_list = Todo.query.all()
     return render_template('index.html', todo_list=todo_list)

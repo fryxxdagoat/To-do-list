@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+button{
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: greenyellow;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    height: 35px;
+    width: 90px;
+}
+
+.remember-forgot{
+    text-decoration: none;
+    cursor: pointer;
+    height: 30px;
+}
+
+.input.box{
+    height: 40px;
+    width: 400px;
+}
