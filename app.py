@@ -4,7 +4,6 @@ import os
 
 app = Flask(__name__)
 
-# Use a fallback for DATABASE_URL (SQLite as default)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///default.db").replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -14,11 +13,8 @@ class Todo(db.Model):
     title = db.Column(db.String(100))
     complete = db.Column(db.Boolean)
 
-@app.route('/')
-def login():
-    return render_template('login.html')
 
-@app.route('/todo')
+@app.route('/')
 def index():
     todo_list = Todo.query.all()
     return render_template('index.html', todo_list=todo_list)
